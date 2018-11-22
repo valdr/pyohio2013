@@ -8,7 +8,7 @@ class Game(cmd.Cmd):
     def __init__(self):
         cmd.Cmd.__init__(self)
         
-        self.dbfile = tempfile.mktemp()
+        self.dbfile = tempfile.mkstemp()[1]
         shutil.copyfile("game.db", self.dbfile)
         
         self.loc = get_room(1, self.dbfile)
